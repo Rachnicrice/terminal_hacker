@@ -11,8 +11,19 @@ public class Hacker : MonoBehaviour
     }
 
     void OnUserInput(string input) {
-        Terminal.ClearScreen();
-        Terminal.WriteLine(input);
+        if (input == "007") {
+            Terminal.WriteLine("Welcome Mr.Bond. Choose a level.");
+        } else if (input == "1") {
+            Terminal.WriteLine("You chose level 1");
+        } else if (input == "2") {
+            Terminal.WriteLine("You chose level 2");
+        } else if (input == "3") {
+            Terminal.WriteLine("You chose level 3");
+        } else if (input == "menu") {
+            ShowMainMenu("You're back");
+        } else {
+            Terminal.WriteLine("Please choose a valid level!");
+        }
     }
 
     //Displays game entry screen
