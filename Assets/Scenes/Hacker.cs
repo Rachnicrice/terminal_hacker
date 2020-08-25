@@ -7,7 +7,7 @@ public class Hacker : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         print("Hello Console");
-        ShowMainMenu();
+        ShowMainMenu("Hello Rachael");
     }
 
     // Update is called once per frame
@@ -17,9 +17,8 @@ public class Hacker : MonoBehaviour
     }
 
     //Displays game entry screen
-    void ShowMainMenu () {
+    void ShowMainMenu (string greeting) {
         Terminal.ClearScreen();
-        string greeting = "Hello Rachael";
         Terminal.WriteLine(greeting);
 
         //Terminal.WriteLine("Welcome Captain. Infiltrate the");
