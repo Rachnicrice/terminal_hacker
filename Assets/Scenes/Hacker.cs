@@ -7,7 +7,7 @@ public class Hacker : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         print("Hello Console");
-        ShowMainMenu("Hello Rachael");
+        ShowMainMenu();
     }
 
     void OnUserInput(string input) {
@@ -20,18 +20,17 @@ public class Hacker : MonoBehaviour
         } else if (input == "3") {
             Terminal.WriteLine("You chose level 3");
         } else if (input == "menu") {
-            ShowMainMenu("You're back");
+            ShowMainMenu();
         } else {
             Terminal.WriteLine("Please choose a valid level!");
         }
     }
 
     //Displays game entry screen
-    void ShowMainMenu (string greeting) {
+    void ShowMainMenu () {
         Terminal.ClearScreen();
-        Terminal.WriteLine(greeting);
 
-        //Terminal.WriteLine("Welcome Captain. Infiltrate the");
+        Terminal.WriteLine("Welcome Captain. Infiltrate the");
         Terminal.WriteLine("following federation systems.");
         Terminal.WriteLine("Refuse and we will detonate the red");
         Terminal.WriteLine("matter at your planet's core.");
