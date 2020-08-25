@@ -10,10 +10,9 @@ public class Hacker : MonoBehaviour
         ShowMainMenu("Hello Rachael");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnUserInput(string input) {
+        Terminal.ClearScreen();
+        Terminal.WriteLine(input);
     }
 
     //Displays game entry screen
