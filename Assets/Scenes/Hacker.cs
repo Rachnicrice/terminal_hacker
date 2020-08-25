@@ -10,19 +10,27 @@ public class Hacker : MonoBehaviour
         ShowMainMenu();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnUserInput(string input) {
+        if (input == "007") {
+            Terminal.WriteLine("Welcome Mr.Bond. Choose a level.");
+        } else if (input == "1") {
+            Terminal.WriteLine("You chose level 1");
+        } else if (input == "2") {
+            Terminal.WriteLine("You chose level 2");
+        } else if (input == "3") {
+            Terminal.WriteLine("You chose level 3");
+        } else if (input == "menu") {
+            ShowMainMenu();
+        } else {
+            Terminal.WriteLine("Please choose a valid level!");
+        }
     }
 
     //Displays game entry screen
     void ShowMainMenu () {
         Terminal.ClearScreen();
-        string greeting = "Hello Rachael";
-        Terminal.WriteLine(greeting);
 
-        //Terminal.WriteLine("Welcome Captain. Infiltrate the");
+        Terminal.WriteLine("Welcome Captain. Infiltrate the");
         Terminal.WriteLine("following federation systems.");
         Terminal.WriteLine("Refuse and we will detonate the red");
         Terminal.WriteLine("matter at your planet's core.");
