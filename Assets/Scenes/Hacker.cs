@@ -83,10 +83,15 @@ public class Hacker : MonoBehaviour
     // Checks to see if the user input matches password
     void CheckPassword (string input) {
         if (input == password) {
-            Terminal.WriteLine("Good job. You're in.");
+            DisplayWinScreen();
         } else {
             Terminal.WriteLine("You've just made a huge mistake");            
         }
+    }
+
+    void DisplayWinScreen () {
+        Terminal.ClearScreen();
+        Terminal.WriteLine("Good job. You're in.");
     }
 
 
