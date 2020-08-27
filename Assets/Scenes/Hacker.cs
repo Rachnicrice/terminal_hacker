@@ -6,6 +6,7 @@ public class Hacker : MonoBehaviour
 {
     // Game state
     int level;
+    string password;
 
     enum Screen { MainMenu, Password, Win };
     Screen currentScreen = Screen.MainMenu;
@@ -18,15 +19,17 @@ public class Hacker : MonoBehaviour
 
     void OnUserInput(string input) {
         if (input == "menu") {
-            currentScreen = Screen.MainMenu;
             ShowMainMenu();
-        } else {
+        } else if (currentScreen == Screen.MainMenu) {
             RunMainMenu(input);
+        } else if (currentScreen == Screen.Password) {
+            CheckPassword(input);
         }
     }
 
     //Displays game entry screen
     void ShowMainMenu () {
+        currentScreen = Screen.MainMenu;
         Terminal.ClearScreen();
         //Set up screen
         Terminal.WriteLine("Welcome Captain. Infiltrate the");
@@ -48,12 +51,15 @@ public class Hacker : MonoBehaviour
             Terminal.WriteLine("Welcome Mr.Bond. Choose a level.");
         } else if (input == "1") {
             level = 1;
+            password = "Star";
             StartGame();
         } else if (input == "2") {
             level = 2;
+            password = "Prosper";
             StartGame();
         } else if (input == "3") {
             level = 3;
+            password = "Fascinating";
             StartGame();
         } else {
             Terminal.WriteLine("Please choose a valid level!");
@@ -63,5 +69,17 @@ public class Hacker : MonoBehaviour
     void StartGame () {
         currentScreen = Screen.Password;
         Terminal.WriteLine("You have chosen level " + level);
+        Terminal.WriteLine("Please enter your password: ");
     }
+
+    // Checks to see if the user input matches password
+    void CheckPassword (string input) {
+        if (input == password) {
+            Terminal.WriteLine("Good job. You're in.");
+        } else {
+            Terminal.WriteLine("You've just made a huge mistake");            
+        }
+    }
+
+
 }
