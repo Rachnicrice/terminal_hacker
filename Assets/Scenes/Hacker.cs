@@ -96,29 +96,32 @@ public class Hacker : MonoBehaviour
     }
 
     void ShowLevelReward () {
-        Terminal.WriteLine("Good job. You're in.");
         switch(level) {
             case 1:
+                Terminal.WriteLine("You've hacked the Kobayashi Maru!");
                 Terminal.WriteLine(@"
-     ___
- ___/   \___
-/   '---'   \
-'--_______--'
-     / \
-    /   \        
+     .--.
+    (    )       
+   (_)  /
+       (_,      
 ");
+                //Ascii art based on art found on:
+                Terminal.WriteLine("Credit for ascii art to https://www.asciiart.eu/space/other");
                 break;
             case 2:
+                Terminal.WriteLine("You've hacked the USS Enterprise!");
                 Terminal.WriteLine(@"
-     ___
- ___/   \___
-/   '---'   \
-'--_______--'
-     / \
-    /   \            
+       .-.      _______  
+      {}``; |==|_______D  
+      / ('        /|\  
+  (  /  |        / | \  
+   \(_)_]]      /  |  \          
 ");
+                //Ascii art based on art found on:
+                Terminal.WriteLine("Credit for ascii art to https://www.asciiart.eu/space/telescopes");
                 break;
             case 3:
+                Terminal.WriteLine("You've hacked the Starfleet!");
                 Terminal.WriteLine(@"
      ___
  ___/   \___
@@ -127,12 +130,14 @@ public class Hacker : MonoBehaviour
      / \
     /   \           
 ");
+                //Ascii art found on:
+                Terminal.WriteLine("Credit for ascii art to https://www.asciiart.eu/space/aliens");
                 break;
             default:
                 Terminal.WriteLine("Wow you hacked the hacking game. Well done.");
                 break;
         }
-        Terminal.WriteLine("https://www.asciiart.eu/space/aliens");
+        Terminal.WriteLine("Type 'menu' to return home");
     }
 
 
