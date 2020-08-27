@@ -55,8 +55,7 @@ public class Hacker : MonoBehaviour
         if (input == "007") {
             Terminal.WriteLine("Welcome Mr.Bond. Choose a level.");
         } else if (isValidLevel) {
-            level = 1;
-            password = passOne[0];
+            level = int.Parse(input);
             StartGame();
         } else {
             Terminal.WriteLine("Please choose a valid level!");
@@ -66,6 +65,20 @@ public class Hacker : MonoBehaviour
     void StartGame () {
         currentScreen = Screen.Password;
         Terminal.ClearScreen();
+        switch(level) {
+            case 1: 
+                password = passOne[0];
+                break;
+            case 2:
+                password = passTwo[0];
+                break;
+            case 3:
+                password = passThree[0];
+                break;
+            default:
+                Debug.LogError("Not a valid level!");
+                break;
+        }
         Terminal.WriteLine("Please enter your password: ");
     }
 
