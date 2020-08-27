@@ -90,8 +90,49 @@ public class Hacker : MonoBehaviour
     }
 
     void DisplayWinScreen () {
+        currentScreen = Screen.Win;
         Terminal.ClearScreen();
+        ShowLevelReward();
+    }
+
+    void ShowLevelReward () {
         Terminal.WriteLine("Good job. You're in.");
+        switch(level) {
+            case 1:
+                Terminal.WriteLine(@"
+     ___
+ ___/   \___
+/   '---'   \
+'--_______--'
+     / \
+    /   \        
+");
+                break;
+            case 2:
+                Terminal.WriteLine(@"
+     ___
+ ___/   \___
+/   '---'   \
+'--_______--'
+     / \
+    /   \            
+");
+                break;
+            case 3:
+                Terminal.WriteLine(@"
+     ___
+ ___/   \___
+/   '---'   \
+'--_______--'
+     / \
+    /   \           
+");
+                break;
+            default:
+                Terminal.WriteLine("Wow you hacked the hacking game. Well done.");
+                break;
+        }
+        Terminal.WriteLine("https://www.asciiart.eu/space/aliens");
     }
 
 
