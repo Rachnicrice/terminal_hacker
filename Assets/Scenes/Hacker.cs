@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Hacker : MonoBehaviour
 {
@@ -67,13 +65,13 @@ public class Hacker : MonoBehaviour
         Terminal.ClearScreen();
         switch(level) {
             case 1: 
-                password = passOne[0];
+                password = passOne[Random.Range(0, passOne.Length)];
                 break;
             case 2:
-                password = passTwo[0];
+                password = passTwo[Random.Range(0, passTwo.Length)];
                 break;
             case 3:
-                password = passThree[0];
+                password = passThree[Random.Range(0, passThree.Length)];
                 break;
             default:
                 Debug.LogError("Not a valid level!");
