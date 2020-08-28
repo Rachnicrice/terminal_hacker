@@ -5,9 +5,9 @@ public class Hacker : MonoBehaviour
     // Game state
     int level;
     string password;
-    string[] passOne = { "Star", "Trek", "Crew", "Live", "Long" };
-    string[] passTwo = { "Prosper", "Hijinks", "Captain", "Mission", "Klingon" };
-    string[] passThree = { "Resistance", "Intergalactic", "Telepathic", "Fascinating", "Assimilated" };
+    string[] passOne = { "star", "trek", "crew", "live", "long" };
+    string[] passTwo = { "prosper", "hijinks", "captain", "mission", "klingon" };
+    string[] passThree = { "resistance", "intergalactic", "telepathic", "fascinating", "assimilated" };
 
     enum Screen { MainMenu, Password, Win };
     Screen currentScreen = Screen.MainMenu;
@@ -54,15 +54,22 @@ public class Hacker : MonoBehaviour
             Terminal.WriteLine("Welcome Mr.Bond. Choose a level.");
         } else if (isValidLevel) {
             level = int.Parse(input);
-            StartGame();
+            AskForPassword();
         } else {
             Terminal.WriteLine("Please choose a valid level!");
         }
     }
 
-    void StartGame () {
+    //Ask the player for the code and give them a hint
+    void AskForPassword () {
         currentScreen = Screen.Password;
         Terminal.ClearScreen();
+        SetRandomPassword();
+        Terminal.WriteLine("Enter password, hint: " + password.Anagram());
+    }
+
+    //Set a random password based on level
+    void SetRandomPassword () {
         switch(level) {
             case 1: 
                 password = passOne[Random.Range(0, passOne.Length)];
@@ -77,7 +84,6 @@ public class Hacker : MonoBehaviour
                 Debug.LogError("Not a valid level!");
                 break;
         }
-        Terminal.WriteLine("Please enter your password: ");
     }
 
     // Checks to see if the user input matches password
@@ -85,7 +91,7 @@ public class Hacker : MonoBehaviour
         if (input == password) {
             DisplayWinScreen();
         } else {
-            Terminal.WriteLine("You've just made a huge mistake");            
+            AskForPassword();           
         }
     }
 
